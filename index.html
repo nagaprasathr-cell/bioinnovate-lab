@@ -2,435 +2,426 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#071b25">
-<meta name="description" content="BioInnovate Lab — Exploring biotechnology, molecular science, microbiology and sustainable innovation.">
-<title>BioInnovate Lab | Science for Tomorrow</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BioInnovate Virtual Lab</title>
 <style>
-:root {
-  --bg:#071b25;
-  --panel:#0d2732;
-  --text:#f1fafb;
-  --muted:#a5bec5;
-  --accent:#43e6c1;
-  --blue:#68bfff;
-  --border:rgba(255,255,255,.11);
-}
-body.light {
-  --bg:#f3f9fa;
-  --panel:#ffffff;
-  --text:#102c36;
-  --muted:#526d76;
-  --border:rgba(0,30,40,.13);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
-body{
-  background:var(--bg);color:var(--text);
-  font-family:Inter,system-ui,-apple-system,sans-serif;
-  line-height:1.7;transition:background .3s,color .3s;
-}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer}
-.container{width:min(1120px,90%);margin:auto}
-nav{
-  position:sticky;top:0;z-index:100;
-  background:color-mix(in srgb,var(--bg) 88%,transparent);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--border);
-}
-.nav-inner{
-  min-height:76px;display:flex;align-items:center;
-  justify-content:space-between;gap:20px;
-}
-.logo{font-size:1.2rem;font-weight:850;letter-spacing:-.7px}
-.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:22px;align-items:center}
-.nav-links a{font-size:.87rem;color:var(--muted)}
-.nav-links a:hover{color:var(--accent)}
-.theme,.menu-btn{
-  border:1px solid var(--border);background:var(--panel);
-  color:var(--text);border-radius:12px;padding:9px 13px;
-}
-.menu-btn{display:none}
-.hero{
-  min-height:640px;display:grid;grid-template-columns:1.1fr .9fr;
-  align-items:center;gap:40px;padding:75px 0;
-}
-.eyebrow{color:var(--accent);font-size:.8rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
-h1{font-size:clamp(2.8rem,6vw,5rem);line-height:1.06;letter-spacing:-3px;margin:22px 0}
-h1 span{color:var(--accent)}
-h2{font-size:clamp(1.9rem,4vw,3rem);line-height:1.2;letter-spacing:-1.4px;margin:10px 0 16px}
-h3{font-size:1.15rem;margin-bottom:10px}
-p{color:var(--muted)}
-.hero p{font-size:1.05rem;max-width:560px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.btn{
-  display:inline-block;border-radius:12px;padding:12px 19px;
-  font-weight:750;border:1px solid var(--border);
-  transition:transform .2s,opacity .2s;
-}
-.btn:hover{transform:translateY(-3px)}
-.primary{background:var(--accent);color:#05221e;border-color:var(--accent)}
-.hero-image{
-  position:relative;border-radius:28px;overflow:hidden;
-  border:1px solid var(--border);min-height:400px;
-}
-.hero-image img{width:100%;height:440px;object-fit:cover;display:block}
-.image-label{
-  position:absolute;bottom:20px;left:20px;right:20px;
-  background:rgba(4,23,30,.82);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:16px;padding:16px;color:white;
-}
-section{padding:85px 0}
-.section-head{max-width:690px;margin-bottom:35px}
-.section-head p{margin-top:10px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{
-  padding:24px;border:1px solid var(--border);
-  border-radius:20px;background:var(--panel);
-  transition:transform .25s,border-color .25s;
-}
-.card:hover{transform:translateY(-5px);border-color:var(--accent)}
-.icon{font-size:1.8rem;margin-bottom:13px}
-.card p{font-size:.94rem}
-.card img{
-  width:100%;height:185px;object-fit:cover;
-  border-radius:13px;margin-bottom:18px;
-}
-.stats{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:15px;
-  margin-top:30px;
-}
-.stat{border:1px solid var(--border);padding:22px;border-radius:16px}
-.stat strong{display:block;color:var(--accent);font-size:1.8rem}
-.stat span{font-size:.88rem;color:var(--muted)}
-.experiment{margin-top:25px}
-.experiment ol{padding-left:22px;color:var(--muted)}
-.experiment li{padding:5px 0}
-.notice{
-  border-left:4px solid var(--accent);
-  background:var(--panel);padding:18px;border-radius:0 12px 12px 0;
-  margin:20px 0;
-}
-.search{
-  width:100%;padding:13px 16px;margin-bottom:22px;
-  background:var(--panel);border:1px solid var(--border);
-  border-radius:12px;color:var(--text);
-}
-.gallery img{
-  width:100%;height:220px;object-fit:cover;
-  border-radius:17px;border:1px solid var(--border);
-}
-footer{border-top:1px solid var(--border);padding:35px 0}
-.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
-.reveal.visible{opacity:1;transform:translateY(0)}
-#top{
-  position:fixed;bottom:22px;right:22px;z-index:90;
-  background:var(--accent);color:#05221e;border:0;
-  padding:12px 16px;border-radius:50%;display:none;
-}
-@media(max-width:850px){
-  .nav-links{
-    display:none;position:absolute;top:76px;left:0;right:0;
-    padding:22px 5%;background:var(--bg);
-    border-bottom:1px solid var(--border);
-    flex-direction:column;align-items:flex-start;
-  }
-  .nav-links.open{display:flex}
-  .menu-btn{display:block}
-  .hero{grid-template-columns:1fr;padding:55px 0}
-  .hero-image img{height:340px}
-  .grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:560px){
-  .grid,.stats{grid-template-columns:1fr}
-  section{padding:60px 0}
-  h1{letter-spacing:-2px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
-}
+:root{--bg:#07121f;--card:#102438;--line:#244257;--teal:#4de0c1;--text:#eaf4fb;--muted:#9db3c4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px Arial,sans-serif}
+header{padding:20px 5%;background:#0d1d2d;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:bold;color:var(--teal)}
+button{padding:11px 15px;border:1px solid var(--line);border-radius:9px;background:#163248;color:white;cursor:pointer;margin:3px}
+button:hover{border-color:var(--teal)}
+.primary{background:var(--teal);color:#06232a;font-weight:bold}
+main{max-width:1200px;margin:auto;padding:28px 5%}
+h1{font-size:38px;margin-bottom:8px}
+h2{font-size:21px}
+p,.muted{color:var(--muted);line-height:1.6}
+.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:20px;margin:18px 0}
+.layout{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+.lab{min-height:300px;background:linear-gradient(#15374b,#091722);border:1px solid #315267;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:20px}
+.equipment{width:100px;height:125px;border:2px solid #a8d9e8;border-radius:8px 8px 25px 25px;background:#48bba844;display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;cursor:pointer;transition:.2s}
+.equipment:hover{transform:translateY(-5px);border-color:var(--teal)}
+.equipment.selected{outline:2px solid var(--teal)}
+.instrument{width:130px;height:115px;background:#29485d;border:2px solid #83aabe;border-radius:12px;padding:10px;text-align:center}
+.screen{background:#06131c;color:var(--teal);padding:12px 5px;font-family:monospace;margin-bottom:10px}
+.steps button{display:block;width:100%;text-align:left;margin:7px 0}
+.status{background:#071722;border:1px solid var(--line);border-radius:9px;padding:12px;margin-top:12px;line-height:1.5}
+label{display:block;margin:12px 0 5px;color:var(--muted)}
+input,select{width:100%;padding:10px;background:#071722;color:white;border:1px solid var(--line);border-radius:8px}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}
+th{color:var(--teal)}
+canvas{width:100%;height:280px;background:#081723;border-radius:10px}
+.notice{padding:12px;border:1px solid #70522f;background:#2a2117;color:#ffd7a6;border-radius:9px;line-height:1.5}
+@media(max-width:800px){.layout{grid-template-columns:1fr}h1{font-size:30px}}
 </style>
 </head>
-
 <body>
-<nav>
-  <div class="container nav-inner">
-    <a class="logo" href="#home">Bio<span>Innovate</span> Lab</a>
-    <div class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#equipment">Equipment</a>
-      <a href="#experiments">Experiments</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div style="display:flex;gap:8px">
-      <button class="theme" id="themeBtn" aria-label="Toggle theme">☼</button>
-      <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
-    </div>
-  </div>
-</nav>
+<header>
+<div class="logo">⌬ BioInnovate Virtual Lab</div>
+<div>
+<button onclick="go('labSection')">Virtual Lab</button>
+<button onclick="go('observations')">Observations</button>
+<button onclick="go('report')">Lab Report</button>
+</div>
+</header>
 
 <main>
-<section class="container hero" id="home">
-  <div class="reveal">
-    <div class="eyebrow">Research · Discovery · Innovation</div>
-    <h1>Innovating Life Through <span>Biotechnology.</span></h1>
-    <p>Exploring the science of living systems to understand biological processes and inspire sustainable solutions for tomorrow.</p>
-    <div class="actions">
-      <a class="btn primary" href="#research">Explore Research ↗</a>
-      <a class="btn" href="#experiments">View Experiments</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><strong>06</strong><span>Research Areas</span></div>
-      <div class="stat"><strong>07+</strong><span>Equipment Types</span></div>
-      <div class="stat"><strong>∞</strong><span>Ideas to Explore</span></div>
-    </div>
-  </div>
-  <div class="hero-image reveal">
-    <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1000&q=85" alt="Scientist working in a research laboratory">
-    <div class="image-label">
-      <strong>Science for a better tomorrow</strong>
-      <div>Curiosity drives every discovery.</div>
-    </div>
-  </div>
+<p style="color:var(--teal)">INTERACTIVE BIOTECHNOLOGY LABORATORY</p>
+<h1>Perform Your Experiment.<br><span style="color:var(--teal)">Discover the Results.</span></h1>
+<p>Virtual estimation of carbohydrates in packaged biscuits using the Anthrone method.</p>
+
+<div class="notice">Educational simulation only. No real chemicals are used. Concentrated sulfuric acid and Anthrone reagent require proper laboratory safety procedures and qualified supervision.</div>
+
+<div class="layout">
+<div>
+<section class="card" id="labSection">
+<h2>Virtual Laboratory Bench</h2>
+<p>Select an apparatus and perform each experiment stage.</p>
+
+<div class="lab">
+<div class="equipment" onclick="selectEquipment(this,'Electronic Balance')">⚖️<br>Balance</div>
+<div class="equipment" onclick="selectEquipment(this,'Test Tubes')">🧪<br>Test Tubes</div>
+<div class="equipment" onclick="selectEquipment(this,'Sample Beaker')">🥛<br>Beaker</div>
+<div class="equipment" onclick="selectEquipment(this,'Water Bath')">♨️<br>Water Bath</div>
+<div class="instrument" onclick="selectEquipment(this,'Spectrophotometer')">
+<div class="screen" id="specReading">ABS<br>0.000</div>
+Spectrophotometer
+</div>
+</div>
+
+<div class="status" id="equipmentStatus">Select laboratory equipment to inspect it.</div>
+
+<h2 style="margin-top:25px">Experiment Controls</h2>
+<label>Biscuit sample mass (g)</label>
+<input id="mass" type="number" value="1" min="0.1" max="10" step="0.1">
+
+<label>Dilution factor</label>
+<input id="dilution" type="number" value="10" min="1" max="1000">
+
+<label>Measurement wavelength</label>
+<select id="wavelength">
+<option value="620">620 nm</option>
+<option value="630">630 nm</option>
+</select>
+
+<div class="steps" id="steps"></div>
+<button class="primary" onclick="performStep()">Perform Current Step</button>
+<button onclick="resetLab()">Reset Experiment</button>
+<div class="status" id="message">Start with Step 1: Prepare the biscuit sample.</div>
 </section>
 
-<section id="about">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Who We Are</div>
-      <h2>Where biology meets innovation.</h2>
-      <p>BioInnovate Lab is a biotechnology learning and research website designed to explore scientific concepts, laboratory methods, and student projects.</p>
-    </div>
-    <div class="grid">
-      <article class="card reveal"><div class="icon">🧬</div><h3>Our Mission</h3><p>Make biotechnology concepts easier to understand through clear scientific information and practical learning resources.</p></article>
-      <article class="card reveal"><div class="icon">🔬</div><h3>Our Approach</h3><p>Connect biological theory with laboratory techniques, experimental observations, and evidence-based interpretation.</p></article>
-      <article class="card reveal"><div class="icon">🌱</div><h3>Our Vision</h3><p>Encourage responsible scientific thinking and explore biotechnology applications for health, food, and the environment.</p></article>
-    </div>
-  </div>
+<section class="card" id="observations">
+<h2>Observation Table</h2>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>Sample</th><th>Concentration (mg/mL)</th><th>Absorbance</th></tr></thead>
+<tbody id="tableBody"><tr><td colspan="3">No readings yet.</td></tr></tbody>
+</table>
+</div>
 </section>
 
-<section id="research">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Explore the Science</div>
-      <h2>Research areas.</h2>
-      <p>Discover major fields contributing to modern biotechnology.</p>
-    </div>
-    <div class="grid">
-      <article class="card reveal"><div class="icon">🦠</div><h3>Microbiology</h3><p>Study microorganisms, microbial growth, identification, and their applications.</p></article>
-      <article class="card reveal"><div class="icon">🧬</div><h3>Molecular Biology</h3><p>Explore DNA, RNA, proteins, gene expression, and molecular techniques.</p></article>
-      <article class="card reveal"><div class="icon">⚗️</div><h3>Biochemistry</h3><p>Understand biomolecules, enzymes, metabolism, and biochemical analysis.</p></article>
-      <article class="card reveal"><div class="icon">🧫</div><h3>Genetic Engineering</h3><p>Learn about DNA modification and the principles behind genetic technologies.</p></article>
-      <article class="card reveal"><div class="icon">🌍</div><h3>Environmental Biotechnology</h3><p>Explore microbial applications in pollution control and bioremediation.</p></article>
-      <article class="card reveal"><div class="icon">🌾</div><h3>Food Biotechnology</h3><p>Discover food analysis, fermentation, quality evaluation, and food safety.</p></article>
-    </div>
-  </div>
+<section class="card">
+<h2>Calibration Curve</h2>
+<canvas id="chart" width="700" height="300"></canvas>
+<p id="equation">Complete the absorbance measurement to generate the graph.</p>
+</section>
+</div>
+
+<div>
+<section class="card">
+<h2>Experiment Workflow</h2>
+<div id="workflow"></div>
 </section>
 
-<section id="equipment">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Laboratory Essentials</div>
-      <h2>Tools of discovery.</h2>
-      <p>Common instruments used in biotechnology laboratories.</p>
-    </div>
-    <div class="grid">
-      <article class="card reveal"><img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=700&q=80" alt="Laboratory microscope"><h3>Microscope</h3><p>Magnifies cells and other small biological structures.</p></article>
-      <article class="card reveal"><img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=700&q=80" alt="Laboratory glassware"><h3>Laboratory Glassware</h3><p>Used for measuring, mixing, and handling laboratory samples.</p></article>
-      <article class="card reveal"><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=700&q=80" alt="Laboratory equipment"><h3>Analytical Instruments</h3><p>Support measurement and analysis of biological samples.</p></article>
-      <article class="card reveal"><div class="icon">🌀</div><h3>Centrifuge</h3><p>Separates sample components through centrifugal force.</p></article>
-      <article class="card reveal"><div class="icon">📈</div><h3>Spectrophotometer</h3><p>Measures light absorbance to help quantify substances.</p></article>
-      <article class="card reveal"><div class="icon">🌡️</div><h3>Incubator</h3><p>Maintains controlled conditions for approved biological studies.</p></article>
-      <article class="card reveal"><div class="icon">💧</div><h3>Micropipette</h3><p>Measures and transfers small liquid volumes accurately.</p></article>
-      <article class="card reveal"><div class="icon">♨️</div><h3>Autoclave</h3><p>Uses validated steam sterilization cycles for suitable materials.</p></article>
-      <article class="card reveal"><div class="icon">🧬</div><h3>Electrophoresis Unit</h3><p>Separates charged biomolecules using an electric field.</p></article>
-    </div>
-  </div>
+<section class="card">
+<h2>Live Results</h2>
+<p>Sample absorbance</p>
+<h2 id="absResult" style="color:var(--teal)">—</h2>
+<p>Estimated concentration</p>
+<h2 id="concResult" style="color:var(--teal)">—</h2>
+<p>Estimated carbohydrate</p>
+<h2 id="sugarResult" style="color:var(--teal)">—</h2>
+<p class="muted">Results are generated from simulated measurements and are not real laboratory results.</p>
 </section>
 
-<section id="experiments">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Practical Learning</div>
-      <h2>Experiment library.</h2>
-      <p>Explore experimental principles, methods, observations, and calculations.</p>
-    </div>
-    <input class="search" id="experimentSearch" type="search" placeholder="Search experiments..." aria-label="Search experiments">
-    <div class="grid" id="experimentGrid">
-      <article class="card reveal searchable">
-        <div class="icon">🍪</div>
-        <h3>Carbohydrate Estimation in Biscuits</h3>
-        <p>Study the Anthrone method and the role of a glucose standard curve in estimating carbohydrate concentration.</p>
-        <a class="btn primary" style="margin-top:18px" href="#biscuit-experiment">View Experiment ↗</a>
-      </article>
-      <article class="card reveal searchable"><div class="icon">🧪</div><h3>Enzyme Activity</h3><p>Explore how pH and temperature can influence enzyme activity using an approved practical protocol.</p></article>
-      <article class="card reveal searchable"><div class="icon">🌿</div><h3>Microalgae Growth</h3><p>Learn how light conditions can influence microalgal growth and biomass production.</p></article>
-      <article class="card reveal searchable"><div class="icon">🌍</div><h3>Bioremediation</h3><p>Explore the role of microorganisms in the breakdown of selected environmental pollutants.</p></article>
-    </div>
-
-    <div class="card experiment reveal" id="biscuit-experiment">
-      <div class="eyebrow">Featured Experiment</div>
-      <h2>Estimation of Carbohydrates in Packaged Biscuits Using the Anthrone Method</h2>
-      <h3>Aim</h3>
-      <p>To estimate carbohydrate content in a packaged biscuit sample using a validated Anthrone method.</p>
-      <h3 style="margin-top:22px">Principle</h3>
-      <p>Under strongly acidic conditions, carbohydrates form products that react with Anthrone to produce a coloured solution. Absorbance is measured using a spectrophotometer under the conditions specified by the validated method.</p>
-      <h3 style="margin-top:22px">Materials</h3>
-      <p>Biscuit sample, distilled water, suitable test tubes, Anthrone reagent, spectrophotometer, water bath, glucose standards, and appropriate laboratory PPE.</p>
-      <h3 style="margin-top:22px">Procedure Overview</h3>
-      <ol>
-        <li>Crush 2 g of biscuit and dissolve it in 100 mL of distilled water.</li>
-        <li>Transfer 2 mL of the prepared sample into a suitable test tube.</li>
-        <li>Reagent addition, including concentrated sulfuric acid, must follow a validated protocol under qualified laboratory supervision.</li>
-        <li>Use the specified water-bath conditions and cooling procedure in the approved method.</li>
-        <li>Measure absorbance at the wavelength specified by the validated method.</li>
-        <li>Compare the sample with glucose standards and use a standard curve to estimate concentration.</li>
-      </ol>
-      <div class="notice">
-        <strong>Safety notice</strong>
-        <p>Anthrone reagent and concentrated sulfuric acid are hazardous. This experiment must be conducted by trained personnel with suitable PPE, appropriate ventilation, approved handling procedures, and proper chemical-waste disposal. Never handle these reagents without supervision.</p>
-      </div>
-      <h3>Observation and Calculation</h3>
-      <p>Record the actual absorbance readings and the glucose standard concentrations used. Calculate sample concentration from the standard curve and apply the appropriate dilution factors. No experimental results are provided because measurements have not been performed.</p>
-    </div>
-  </div>
+<section class="card" id="report">
+<h2>Download Lab Report</h2>
+<p>Export your experiment observations, calculations and conclusion.</p>
+<button class="primary" onclick="downloadReport()">Download Report (.txt)</button>
+<button onclick="downloadCSV()">Export Observations (.csv)</button>
 </section>
-
-<section id="projects">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Student Research</div>
-      <h2>Projects and applications.</h2>
-      <p>Example project categories for biotechnology learners.</p>
-    </div>
-    <div class="grid">
-      <article class="card reveal"><div class="icon">🌿</div><h3>Plant Biotechnology</h3><p>Explore plant tissue culture, plant growth, and sustainable agricultural applications.</p></article>
-      <article class="card reveal"><div class="icon">🧫</div><h3>Microbial Studies</h3><p>Investigate microbial properties using appropriate approved laboratory methods.</p></article>
-      <article class="card reveal"><div class="icon">♻️</div><h3>Green Biotechnology</h3><p>Study biological approaches to waste reduction and environmental sustainability.</p></article>
-    </div>
-  </div>
-</section>
-
-<section id="gallery">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Inside the Lab</div>
-      <h2>Research gallery.</h2>
-      <p>Visual glimpses of scientific equipment and laboratory work.</p>
-    </div>
-    <div class="grid gallery">
-      <img class="reveal" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=700&q=80" alt="Laboratory research">
-      <img class="reveal" src="https://images.unsplash.com/photo-1581093458791-9d15482442f8?auto=format&fit=crop&w=700&q=80" alt="Scientific instruments">
-      <img class="reveal" src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=700&q=80" alt="Biotechnology laboratory">
-    </div>
-  </div>
-</section>
-
-<section id="team">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">People Behind the Science</div>
-      <h2>Our team.</h2>
-      <p>Replace these sample roles with real team member details.</p>
-    </div>
-    <div class="grid">
-      <article class="card reveal"><div class="icon">👩‍🔬</div><h3>Research Lead</h3><p>Research planning and scientific guidance.</p></article>
-      <article class="card reveal"><div class="icon">🧑‍🔬</div><h3>Lab Researcher</h3><p>Experimental documentation and laboratory learning.</p></article>
-      <article class="card reveal"><div class="icon">🎓</div><h3>Student Researcher</h3><p>Project development and biotechnology education.</p></article>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">Get in Touch</div>
-      <h2>Let's explore science together.</h2>
-      <p>This is a static demo contact form. It does not send messages to a server.</p>
-    </div>
-    <form id="contactForm" class="card reveal">
-      <label for="name">Your name</label>
-      <input class="search" style="margin-top:8px" id="name" required maxlength="100" placeholder="Enter your name">
-      <label for="email">Email address</label>
-      <input class="search" style="margin-top:8px" id="email" type="email" required placeholder="you@example.com">
-      <label for="message">Message</label>
-      <textarea class="search" style="margin-top:8px;min-height:130px;resize:vertical" id="message" required maxlength="2000" placeholder="Write your message..."></textarea>
-      <button class="btn primary" type="submit">Validate Message ↗</button>
-      <p id="formStatus" role="status" style="margin-top:12px"></p>
-    </form>
-  </div>
-</section>
+</div>
+</div>
 </main>
 
-<footer>
-  <div class="container footer-inner">
-    <a class="logo" href="#home">Bio<span>Innovate</span> Lab</a>
-    <p>Biotechnology · Research · Responsible Innovation</p>
-    <p>© <span id="year"></span> BioInnovate Lab</p>
-  </div>
-</footer>
-
-<button id="top" aria-label="Back to top">↑</button>
-
 <script>
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+const stageNames=[
+"Prepare biscuit sample",
+"Prepare glucose standards",
+"Add virtual Anthrone reagent",
+"Heat and develop colour",
+"Measure absorbance",
+"Calculate final result"
+];
 
-menuBtn.addEventListener("click", () => {
-  const open = navLinks.classList.toggle("open");
-  menuBtn.setAttribute("aria-expanded", String(open));
-});
+let stage=0;
+let completed=[];
+let readings=[];
+let selected="None";
+let sampleAbs=0;
+let sampleConc=0;
+let regression={slope:1.12,intercept:0.035,r2:0.99};
 
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => navLinks.classList.remove("open"));
-});
+function go(id){
+ document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
 
-const themeBtn = document.getElementById("themeBtn");
-themeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("light");
-  themeBtn.textContent = document.body.classList.contains("light") ? "☾" : "☼";
-});
+function selectEquipment(element,name){
+ document.querySelectorAll(".equipment,.instrument").forEach(e=>e.classList.remove("selected"));
+ element.classList.add("selected");
+ selected=name;
+ document.getElementById("equipmentStatus").textContent=
+ "Selected equipment: "+name+". Use the experiment controls to continue.";
+}
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
-    }
+function renderStages(){
+ const steps=document.getElementById("steps");
+ const workflow=document.getElementById("workflow");
+ steps.innerHTML="";
+ workflow.innerHTML="";
+ stageNames.forEach((name,i)=>{
+  const b=document.createElement("button");
+  b.textContent=(completed.includes(i)?"✓ ":"")+(i+1)+". "+name;
+  b.style.borderColor=i===stage?"#4de0c1":"#244257";
+  b.onclick=()=>{stage=i;renderStages();document.getElementById("message").textContent="Selected stage: "+name;};
+  steps.appendChild(b);
+
+  const p=document.createElement("p");
+  p.textContent=(completed.includes(i)?"✓ ":"○ ")+(i+1)+". "+name;
+  p.style.color=completed.includes(i)?"#4de0c1":i===stage?"white":"#9db3c4";
+  workflow.appendChild(p);
+ });
+}
+
+function performStep(){
+ const mass=Number(document.getElementById("mass").value);
+ if(!(mass>0&&mass<=10)){
+  document.getElementById("message").textContent="Enter a sample mass between 0.1 and 10 g.";
+  return;
+ }
+
+ if(stage>0&&!completed.includes(stage-1)){
+  document.getElementById("message").textContent="Complete the previous stage first.";
+  return;
+ }
+
+ if(stage===4){
+  readings=[];
+  const concentrations=[0,0.2,0.4,0.6,0.8];
+  concentrations.forEach((c,i)=>{
+   readings.push({
+    name:i===0?"Blank":"Standard "+i,
+    concentration:c,
+    absorbance:Math.max(0,0.035+1.12*c+(Math.random()-0.5)*0.04)
+   });
   });
-}, {threshold:0.12});
 
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-const search = document.getElementById("experimentSearch");
-search.addEventListener("input", () => {
-  const query = search.value.trim().toLowerCase();
-  document.querySelectorAll("#experimentGrid .searchable").forEach(card => {
-    card.style.display = card.textContent.toLowerCase().includes(query) ? "" : "none";
+  const expected=Math.min(0.8,Math.max(0.15,0.25+Math.random()*0.15));
+  sampleAbs=0.035+1.12*expected+(Math.random()-0.5)*0.03;
+  readings.push({
+   name:"Biscuit Sample",
+   concentration:null,
+   absorbance:sampleAbs
   });
-});
 
-const topBtn = document.getElementById("top");
-window.addEventListener("scroll", () => {
-  topBtn.style.display = window.scrollY > 500 ? "block" : "none";
-});
-topBtn.addEventListener("click", () => window.scrollTo({top:0,behavior:"smooth"}));
+  document.getElementById("specReading").innerHTML="ABS<br>"+sampleAbs.toFixed(3);
+  document.getElementById("absResult").textContent=sampleAbs.toFixed(3);
+  renderTable();
+  calculateRegression();
+  drawChart();
+ }
 
-document.getElementById("year").textContent = new Date().getFullYear();
+ if(stage===5){
+  if(readings.length===0){
+   document.getElementById("message").textContent="Measure absorbance before calculating the result.";
+   return;
+  }
 
-document.getElementById("contactForm").addEventListener("submit", event => {
-  event.preventDefault();
-  document.getElementById("formStatus").textContent =
-    "Form validation successful. This demo does not send or store your message.";
-});
+  sampleConc=Math.max(0,(sampleAbs-regression.intercept)/regression.slope);
+  const massValue=Number(document.getElementById("mass").value);
+  const dilutionValue=Number(document.getElementById("dilution").value)||1;
+  const estimatedSugar=sampleConc*dilutionValue/massValue;
+
+  document.getElementById("concResult").textContent=sampleConc.toFixed(3)+" mg/mL";
+  document.getElementById("sugarResult").textContent=estimatedSugar.toFixed(2)+" mg/g";
+  document.getElementById("equation").textContent=
+   "Calibration equation: A = "+regression.slope.toFixed(4)+"C + "+
+   regression.intercept.toFixed(4)+" | R² = "+regression.r2.toFixed(4);
+ }
+
+ if(!completed.includes(stage))completed.push(stage);
+
+ document.getElementById("message").textContent=
+ stageNames[stage]+" completed. "+(stage===5?"Your virtual result is ready.":"Proceed to the next stage.");
+
+ if(stage<5)stage++;
+ renderStages();
+ saveProgress();
+}
+
+function calculateRegression(){
+ const points=readings.filter(r=>r.concentration!==null&&r.concentration>0);
+ const x=points.map(p=>p.concentration);
+ const y=points.map(p=>p.absorbance);
+ const n=x.length;
+ const mx=x.reduce((a,b)=>a+b,0)/n;
+ const my=y.reduce((a,b)=>a+b,0)/n;
+ let numerator=0,denominator=0;
+ for(let i=0;i<n;i++){
+  numerator+=(x[i]-mx)*(y[i]-my);
+  denominator+=(x[i]-mx)**2;
+ }
+ const slope=numerator/denominator;
+ const intercept=my-slope*mx;
+ let residual=0,total=0;
+ for(let i=0;i<n;i++){
+  residual+=(y[i]-(slope*x[i]+intercept))**2;
+  total+=(y[i]-my)**2;
+ }
+ regression={slope,intercept,r2:1-residual/total};
+}
+
+function renderTable(){
+ const body=document.getElementById("tableBody");
+ body.innerHTML=readings.map(r=>
+  `<tr><td>${r.name}</td><td>${r.concentration===null?"—":r.concentration.toFixed(2)}</td><td>${r.absorbance.toFixed(3)}</td></tr>`
+ ).join("");
+}
+
+function drawChart(){
+ const canvas=document.getElementById("chart");
+ const ctx=canvas.getContext("2d");
+ const w=canvas.width,h=canvas.height;
+ ctx.clearRect(0,0,w,h);
+ ctx.strokeStyle="#244257";
+ ctx.fillStyle="#9db3c4";
+ ctx.font="12px Arial";
+
+ for(let i=0;i<=4;i++){
+  let x=55+i*150,y=20+i*55;
+  ctx.beginPath();ctx.moveTo(x,20);ctx.lineTo(x,240);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(55,y);ctx.lineTo(655,y);ctx.stroke();
+ }
+ ctx.strokeStyle="#9db3c4";
+ ctx.beginPath();ctx.moveTo(55,20);ctx.lineTo(55,240);ctx.lineTo(655,240);ctx.stroke();
+ ctx.fillText("Glucose concentration (mg/mL)",240,280);
+ ctx.save();ctx.translate(15,170);ctx.rotate(-Math.PI/2);ctx.fillText("Absorbance",0,0);ctx.restore();
+
+ if(!readings.length){
+  ctx.fillText("Complete measurement to generate the graph.",90,140);
+  return;
+ }
+
+ ctx.strokeStyle="#4de0c1";ctx.lineWidth=3;
+ ctx.beginPath();
+ for(let i=0;i<=80;i++){
+  let c=i/100;
+  let a=regression.intercept+regression.slope*c;
+  let x=55+c/0.8*600;
+  let y=240-a/1.0*220;
+  if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+ }
+ ctx.stroke();
+
+ readings.filter(r=>r.concentration!==null&&r.concentration>0).forEach(r=>{
+  const x=55+r.concentration/0.8*600;
+  const y=240-r.absorbance*220;
+  ctx.fillStyle="#66b8ff";
+  ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);ctx.fill();
+ });
+}
+
+function downloadReport(){
+ if(!readings.length){
+  alert("Complete the absorbance measurement first.");
+  return;
+ }
+
+ const mass=Number(document.getElementById("mass").value);
+ const dilution=Number(document.getElementById("dilution").value)||1;
+ const report=
+`BIOINNOVATE VIRTUAL LAB REPORT
+
+Experiment: Estimation of carbohydrates in packaged biscuits using the Anthrone method.
+
+Data type: SIMULATED EDUCATIONAL DATA — NOT REAL MEASUREMENTS.
+
+Aim:
+To estimate carbohydrate concentration using a simulated glucose calibration curve.
+
+Principle:
+Carbohydrates react with Anthrone reagent under strongly acidic conditions to produce a coloured product. Absorbance is compared with glucose standards. This website simulates the process for learning.
+
+Sample mass: ${mass} g
+Dilution factor: ${dilution}
+Wavelength: ${document.getElementById("wavelength").value} nm
+
+OBSERVATIONS:
+${readings.map(r=>r.name+" | Concentration: "+(r.concentration===null?"N/A":r.concentration.toFixed(3))+" mg/mL | Absorbance: "+r.absorbance.toFixed(3)).join("\n")}
+
+Calibration equation:
+A = ${regression.slope.toFixed(4)}C + ${regression.intercept.toFixed(4)}
+
+R squared: ${regression.r2.toFixed(4)}
+Estimated concentration: ${sampleConc.toFixed(4)} mg/mL
+Estimated carbohydrate: ${(sampleConc*dilution/mass).toFixed(4)} mg/g
+
+Conclusion:
+The virtual carbohydrate estimate was calculated using simulated readings. It is not a real food-analysis result.
+
+Safety:
+No real chemicals or instruments are used in this simulation. Real laboratory work requires approved procedures and qualified supervision.
+`;
+ downloadFile(report,"virtual-lab-report.txt","text/plain");
+}
+
+function downloadCSV(){
+ if(!readings.length){alert("Measure absorbance first.");return;}
+ const csv="Sample,Concentration (mg/mL),Absorbance\n"+
+ readings.map(r=>`${r.name},${r.concentration===null?"":r.concentration},${r.absorbance.toFixed(3)}`).join("\n");
+ downloadFile(csv,"observations.csv","text/csv");
+}
+
+function downloadFile(content,name,type){
+ const blob=new Blob([content],{type});
+ const link=document.createElement("a");
+ link.href=URL.createObjectURL(blob);
+ link.download=name;
+ link.click();
+ URL.revokeObjectURL(link.href);
+}
+
+function resetLab(){
+ stage=0;completed=[];readings=[];sampleAbs=0;sampleConc=0;
+ document.getElementById("specReading").innerHTML="ABS<br>0.000";
+ document.getElementById("absResult").textContent="—";
+ document.getElementById("concResult").textContent="—";
+ document.getElementById("sugarResult").textContent="—";
+ document.getElementById("equation").textContent="Complete the absorbance measurement to generate the graph.";
+ document.getElementById("tableBody").innerHTML="<tr><td colspan='3'>No readings yet.</td></tr>";
+ document.getElementById("message").textContent="Experiment reset. Start with Step 1.";
+ renderStages();drawChart();localStorage.removeItem("bioinnovate-progress");
+}
+
+function saveProgress(){
+ localStorage.setItem("bioinnovate-progress",JSON.stringify({stage,completed,readings,sampleAbs,sampleConc,regression}));
+}
+
+function loadProgress(){
+ try{
+  const data=JSON.parse(localStorage.getItem("bioinnovate-progress"));
+  if(data){
+   stage=data.stage||0;
+   completed=data.completed||[];
+   readings=data.readings||[];
+   sampleAbs=data.sampleAbs||0;
+   sampleConc=data.sampleConc||0;
+   regression=data.regression||regression;
+   if(readings.length){
+    renderTable();drawChart();
+    document.getElementById("specReading").innerHTML="ABS<br>"+sampleAbs.toFixed(3);
+    document.getElementById("absResult").textContent=sampleAbs.toFixed(3);
+   }
+   renderStages();
+  }
+ }catch(e){}
+}
+
+renderStages();
+loadProgress();
+drawChart();
 </script>
 </body>
 </html>
